@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export const HeroItem = styled.tr`
   padding: 0 1.5rem;
-  height: 88px;
-  background: var(--white);
+  height: 100px;
+  background: transparent;
   box-shadow: 0px 0px 5px #00000033;
   border-radius: 4px;
 
@@ -20,6 +20,8 @@ export const HeroItem = styled.tr`
   td {
     text-align: left;
     padding-left: 18px;
+    height: 88px;
+    background: var(--white);
     font: 400 0.75rem "PT Sans";
     color: var(--text);
     width: 33%;

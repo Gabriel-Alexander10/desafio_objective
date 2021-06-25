@@ -17,6 +17,10 @@ export function Heroes() {
 
       <tbody>
         <Hero />
+
+        <Hero />
+
+        <Hero />
       </tbody>
     </Table>
   )
