@@ -1,4 +1,4 @@
-import { AiOutlineSearch } from 'react-icons/ai';
+import { MdSearch } from 'react-icons/md';
 
 import { Container } from './styles';
 
@@ -7,7 +7,7 @@ export function SearchInput() {
     <Container>
       <input placeholder="Search" type="text" />
       
-      <AiOutlineSearch size={24} />
+      <MdSearch size={24} />
     </Container>
   )
 }
