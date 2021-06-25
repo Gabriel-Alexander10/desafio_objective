@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import logoImg from '../../assets/logo.svg';
+import logoImg from '../../assets/logo.png';
 
 import { Container, Logo, LogoContainer, UserInfoContainer } from './styles';
 

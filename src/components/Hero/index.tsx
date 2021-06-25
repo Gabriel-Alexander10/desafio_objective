@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { HeroItem } from "./styles";
+import { HeroItem, HeroAvatarWrapper } from "./styles";
 
 import testImg from '../../assets/teste.png';
 
@@ -9,7 +9,9 @@ export function Hero() {
     <HeroItem>
       <td>
         <div>
-          <Image src={testImg} alt="" />
+          <HeroAvatarWrapper>
+            <Image src={testImg} alt="" />
+          </HeroAvatarWrapper>
           <strong>Hero</strong>
         </div>
       </td>

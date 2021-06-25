@@ -1,16 +1,17 @@
 import React from 'react'
 import { Header } from '../components/Header';
 import { Heroes } from '../components/Heroes';
+import { Pagination } from '../components/Pagination';
 import { Search } from '../components/Search';
 
-import { Container, HeroesListContainer } from '../styles/pages/Home';
+import { Container, Content, HeroesListContainer } from '../styles/pages/Home';
 
 export default function Home() {
   return (
-    <div>
+    <Container>
       <Header />
 
-      <Container>
+      <Content>
         <Search />
 
         <HeroesListContainer>
@@ -18,7 +19,9 @@ export default function Home() {
           
         </HeroesListContainer>
 
-      </Container>
-    </div>
+      </Content>
+
+      <Pagination />
+    </Container>
   )
 }
