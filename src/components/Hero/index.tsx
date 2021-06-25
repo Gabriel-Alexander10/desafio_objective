@@ -7,8 +7,6 @@ import { HeroItem, HeroAvatarWrapper } from "./styles";
 
 export function Hero({ name, series, events, thumbnail }: IHero) {
   const thumbURL = thumbnail.path + "/standard_medium." + thumbnail.extension;
-
-  console.log(thumbURL);
   
   return (
     <HeroItem>

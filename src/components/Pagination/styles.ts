@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+interface ButtonProps {
+  active: boolean;
+}
 
 export const Container = styled.footer`
   display: flex;
@@ -8,22 +12,6 @@ export const Container = styled.footer`
   height: 5.625rem;
 
   background: var(--white);
-
-  > button {
-    width: 2.5rem;
-    height: 2rem;
-    background: var(--element);
-    border: 1px solid var(--background);
-    border-radius: 4px;
-
-    &:hover {
-      background: var(--element-highlighted);
-    }
-
-    & + button {
-      margin-left: 1rem;
-    }
-  }
 `;
 
 export const ArrowButtonWrapper = styled.div`
@@ -36,5 +24,24 @@ export const ArrowButtonWrapper = styled.div`
         margin-left: -20px;
       }
     }
+  }
+`;
+
+export const Button = styled.button<ButtonProps>`
+  width: 2.5rem;
+  height: 2rem;
+  ${props => props.active ?
+     css`background: var(--element-highlighted);` :
+     css`background: var(--element);`
+  };
+  border: 1px solid var(--background);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--element-highlighted);
+  }
+
+  & + button {
+    margin-left: 1rem;
   }
 `;

@@ -6,6 +6,7 @@ export const Container = styled.div`
 export const Content = styled.div`
   width: 100%;
   padding: 2.5rem 7.0625rem;
+  min-height: calc(100vh - (4rem + 5.625rem)); // full screen - footer and header
 `;
 
 export const HeroesListContainer = styled.main`

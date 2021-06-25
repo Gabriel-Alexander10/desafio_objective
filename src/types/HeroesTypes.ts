@@ -1,4 +1,4 @@
-type HeroEvents = {
+type IHeroEvents = {
   available: number;
   collectionURI: string;
   items: Array<{
@@ -7,7 +7,7 @@ type HeroEvents = {
   }>
 }
 
-type HeroSeries = {
+type IHeroSeries = {
   available: number;
   collectionURI: string;
   items: Array<{
@@ -16,7 +16,7 @@ type HeroSeries = {
   }>
 }
 
-export interface HeroesApiConfig {
+export interface IHeroesApiConfig {
   params: {
     ts: string;
     hash: string;
@@ -30,6 +30,6 @@ export interface IHero {
     path: string;
     extension: string;
   };
-  series: HeroSeries;
-  events: HeroEvents;
+  series: IHeroSeries;
+  events: IHeroEvents;
 }

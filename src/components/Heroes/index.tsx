@@ -5,8 +5,6 @@ import { Table } from './styles';
 
 export function Heroes() {
   const { heroes } = useHeroes();
-
-  console.log(heroes);
   
   return (
     <Table>

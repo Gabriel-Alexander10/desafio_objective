@@ -1,12 +1,16 @@
 import { createContext, useCallback, useContext, useState } from 'react';
 
-import { IHero, HeroesApiConfig } from '../types/HeroesTypes';
+import { IHero, IHeroesApiConfig } from '../types/HeroesTypes';
 
 interface HeroesContextProps {
   heroes: IHero[];
   handleUpdateHeroes: (heroes: IHero[]) => void;
-  heroesApiConfig: HeroesApiConfig;
-  handleUpdateHeroesApiConfig: (apiConfig: HeroesApiConfig) => void;
+  heroesApiConfig: IHeroesApiConfig;
+  handleUpdateHeroesApiConfig: (apiConfig: IHeroesApiConfig) => void;
+  totalHeroes: number;
+  handleUpdateTotalHeroes: (total: number) => void;
+  currentPage: number;
+  handleUpdateCurrentPage: (pageNumber: number) => void;
 }
 
 const HeroesContext = createContext<HeroesContextProps>({} as HeroesContextProps);
@@ -14,14 +18,25 @@ const HeroesContext = createContext<HeroesContextProps>({} as HeroesContextProps
 
 export function HeroesProvider({  children }) {
   const [heroes, setHeroes] = useState<IHero[]>([]);
-  const [heroesApiConfig, setHeroesApiConfig] = useState<HeroesApiConfig>({} as HeroesApiConfig);
+  const [heroesApiConfig, setHeroesApiConfig] = useState<IHeroesApiConfig>({} as IHeroesApiConfig);
+  const [totalHeroes, setTotalHeroes] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+
 
   const handleUpdateHeroes = useCallback((newHeroes: IHero[]) => {
     setHeroes(newHeroes);
   }, []);
 
-  const handleUpdateHeroesApiConfig = useCallback((apiConfig: HeroesApiConfig) => {
+  const handleUpdateHeroesApiConfig = useCallback((apiConfig: IHeroesApiConfig) => {
     setHeroesApiConfig(apiConfig);
+  }, []);
+
+  const handleUpdateTotalHeroes = useCallback((total: number) => {
+    setTotalHeroes(total);
+  }, []);
+
+  const handleUpdateCurrentPage = useCallback((pageNumber: number) => {
+    setCurrentPage(pageNumber);
   }, []);
 
   return (
@@ -30,7 +45,11 @@ export function HeroesProvider({  children }) {
         heroes, 
         handleUpdateHeroes, 
         heroesApiConfig,
-        handleUpdateHeroesApiConfig
+        handleUpdateHeroesApiConfig,
+        totalHeroes,
+        handleUpdateTotalHeroes,
+        currentPage,
+        handleUpdateCurrentPage
       }}
     >
       {children}
