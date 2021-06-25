@@ -8,7 +8,6 @@ export function Pagination() {
   const { currentPage, handleUpdateCurrentPage, totalHeroes } = useHeroes();
   const [firstButton, setFirstButton] = useState(currentPage);
 
-  console.log(firstButton, currentPage);
   const buttons = new Array(5).fill(0);
 
   function handlePreviewPage(pageNumber: number) {
@@ -47,7 +46,7 @@ export function Pagination() {
       )}
 
       {buttons.map((_, idx) => {
-        if (Math.ceil(totalHeroes / 10) < firstButton + idx) {
+        if (Math.floor(totalHeroes / 10) < firstButton + idx) {
           return;
         }
 
@@ -61,7 +60,7 @@ export function Pagination() {
       })}
 
 
-      {currentPage <= Math.ceil(totalHeroes / 10) - 1 && (
+      {currentPage < Math.floor(totalHeroes / 10) - 1 && (
         <ArrowButtonWrapper>
           <button onClick={() => handleNextPage(currentPage + 1)}>
             <MdKeyboardArrowRight size={16} />
@@ -69,9 +68,9 @@ export function Pagination() {
         </ArrowButtonWrapper>
       )}
 
-      {currentPage <= Math.ceil(totalHeroes / 10) - 2 && (
+      {currentPage < Math.floor(totalHeroes / 10) - 2 && (
         <ArrowButtonWrapper>
-          <button onClick={() => handleNextPage(Math.ceil(totalHeroes / 10))}>
+          <button onClick={() => handleNextPage(Math.floor(totalHeroes / 10))}>
             <MdKeyboardArrowRight size={16} />
             <MdKeyboardArrowRight size={16} />
           </button>

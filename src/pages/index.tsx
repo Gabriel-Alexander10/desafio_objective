@@ -17,11 +17,10 @@ import { IHero, IHeroesApiConfig } from '../types/HeroesTypes';
 interface HomeProps {
   apiHeroes: IHero[];
   apiConfig: IHeroesApiConfig;
-  offset: number;
   total: number;
 }
 
-export default function Home({ apiHeroes, apiConfig, offset, total}) {
+export default function Home({ apiHeroes, apiConfig, total}: HomeProps) {
   const { 
     handleUpdateHeroes,
     handleUpdateHeroesApiConfig,
@@ -33,7 +32,6 @@ export default function Home({ apiHeroes, apiConfig, offset, total}) {
     handleUpdateHeroes(apiHeroes);
     handleUpdateHeroesApiConfig(apiConfig);
 
-    handleUpdateCurrentPage(offset);
     handleUpdateTotalHeroes(total);
   }, [
     apiConfig, 
@@ -42,7 +40,6 @@ export default function Home({ apiHeroes, apiConfig, offset, total}) {
     handleUpdateHeroes, 
     handleUpdateHeroesApiConfig,
     handleUpdateTotalHeroes,
-    offset,
     total
   ]);
 
@@ -73,10 +70,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
     params: {
       ts,
       hash: md5Hash,
+      offset: 0,
     },
   };
 
-  let response: AxiosResponse
+  let response: AxiosResponse;
   
   try {
     response = await api.get('/characters', apiConfig);
@@ -84,13 +82,13 @@ export const getServerSideProps: GetServerSideProps = async () => {
     console.error(err);
   }
 
-
+  console.log(response);
 
   return {
     props: {
       apiHeroes: response?.data.data.results ?? [],
       apiConfig: apiConfig,
-      offset: response?.data.data.offset,
+      offset: 0,
       total: response?.data.data.total,
     },
   }

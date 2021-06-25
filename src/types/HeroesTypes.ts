@@ -20,6 +20,7 @@ export interface IHeroesApiConfig {
   params: {
     ts: string;
     hash: string;
+    offset: number;
   }
 }
 

@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useState } from 'react';
+import { api } from '../services/api';
 
 import { IHero, IHeroesApiConfig } from '../types/HeroesTypes';
 
@@ -37,7 +38,15 @@ export function HeroesProvider({  children }) {
 
   const handleUpdateCurrentPage = useCallback((pageNumber: number) => {
     setCurrentPage(pageNumber);
-  }, []);
+    
+    if (!!heroesApiConfig.params) {
+      heroesApiConfig.params.offset = pageNumber * 10;
+    }
+
+    api.get('/characters', heroesApiConfig).then(response => {
+      setHeroes(response?.data.data.results);
+    })
+  }, [heroesApiConfig]);
 
   return (
     <HeroesContext.Provider
