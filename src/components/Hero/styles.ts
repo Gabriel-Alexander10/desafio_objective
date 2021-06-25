@@ -28,7 +28,11 @@ export const HeroItem = styled.tr`
       padding-right: 2rem;
       padding-left: 0;
     }
-
+    
+    span {
+      display: block;
+    }
+    
     > div {
       display: flex;
       align-items: center;
@@ -46,4 +50,9 @@ export const HeroAvatarWrapper = styled.div`
   border-radius: 4px;
   width: 3rem;
   height: 3rem;
+
+  img {
+    width: 100%;
+    border-radius: 4px;
+  }
 `;

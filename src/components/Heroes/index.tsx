@@ -1,8 +1,13 @@
 
+import { useHeroes } from '../../hooks/HeroesContext';
 import { Hero } from '../Hero';
 import { Table } from './styles';
 
 export function Heroes() {
+  const { heroes } = useHeroes();
+
+  console.log(heroes);
+  
   return (
     <Table>
       <thead>
@@ -16,11 +21,11 @@ export function Heroes() {
       </thead>
 
       <tbody>
-        <Hero />
-
-        <Hero />
-
-        <Hero />
+        {heroes.length > 0 && heroes.map(hero => {
+          return (
+            <Hero key={hero.id} {...hero} />
+          )
+        })}
       </tbody>
     </Table>
   )

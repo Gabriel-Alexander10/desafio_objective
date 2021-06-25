@@ -1,27 +1,52 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from 'next/image';
+
+import { IHero } from '../../types/HeroesTypes';
 
 import { HeroItem, HeroAvatarWrapper } from "./styles";
 
-import testImg from '../../assets/teste.png';
+export function Hero({ name, series, events, thumbnail }: IHero) {
+  const thumbURL = thumbnail.path + "/standard_medium." + thumbnail.extension;
 
-export function Hero() {
+  console.log(thumbURL);
+  
   return (
     <HeroItem>
       <td>
         <div>
           <HeroAvatarWrapper>
-            <Image src={testImg} alt="" />
+            <img src={thumbURL} alt={name} />
           </HeroAvatarWrapper>
-          <strong>Hero</strong>
+          <strong>{name}</strong>
         </div>
       </td>
 
       <td>
-        Iron Man: Armor Wars Old Man Hawkeye Fantastic Four Visionaries: Walter Simonson Vol. 1
+        {series.items.length > 0 ? series.items.map((serie, idx) => {
+          if (idx > 4) {
+            return;
+          }
+
+          return (
+            <span key={serie.name}>{serie.name}</span>
+          )
+        }): (
+          <span>Esse herói não possui séries para serem listadas</span>
+        )}
       </td>
 
       <td>
-        AvX Demon in the Bottle Dynasty M
+      {events.items.length > 0 ? events.items.map((event, idx) => {
+        if (idx > 4) {
+          return;
+        }
+
+        return (
+          <span key={event.name}>{event.name}</span>
+        )
+      }): (
+        <span>Esse herói não possui séries para serem listadas</span>
+      )}
       </td>
     </HeroItem>
   )
