@@ -15,6 +15,10 @@ export const Container = styled.div`
 
   padding: 0 1rem;
 
+  @media (max-width: 700px) {
+    max-width: 700px;
+  }
+
   > input {
     outline: none;
     background: transparent;

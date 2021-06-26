@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { useHeroes } from '../../hooks/HeroesContext';
+import useWindowDimensions from '../../services/hooks/useWindowDimensions';
 
 import { Container, ArrowButtonWrapper, Button } from './styles';
 
@@ -8,7 +9,9 @@ export function Pagination() {
   const { currentPage, handleUpdateCurrentPage, totalHeroes } = useHeroes();
   const [firstButton, setFirstButton] = useState(currentPage);
 
-  const buttons = new Array(5).fill(0);
+  const size = useWindowDimensions();
+
+  const buttons = new Array(size.width >= 700 ? 5 : 3).fill(0);
 
   function handlePreviewPage(pageNumber: number) {
     handleUpdateCurrentPage(pageNumber);

@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useHeroes } from '../../hooks/HeroesContext';
 import { useHeroesQuery } from '../../services/hooks/useHeroesCache';
+import useWindowDimensions from '../../services/hooks/useWindowDimensions';
 import { Hero } from '../Hero';
 import { Table } from './styles';
 
@@ -15,6 +16,7 @@ export function Heroes() {
   } = useHeroes();
 
   const { isLoading, data } = useHeroesQuery(currentPage, undefined, {});
+  const size = useWindowDimensions();
 
   useEffect(() => {
     if (!!data) {
@@ -22,7 +24,7 @@ export function Heroes() {
       handleUpdateHeroesApiConfig(data.apiConfig);
       handleUpdateHeroes(data.heroes);
     }
-  }, [handleUpdateTotalHeroes, handleUpdateHeroesApiConfig, data]);
+  }, [handleUpdateTotalHeroes, handleUpdateHeroesApiConfig, data, handleUpdateHeroes]);
   
   return (
     <Table>
@@ -30,9 +32,13 @@ export function Heroes() {
         <tr>
           <th>Personagem</th>
 
-          <th>Séries</th>
+          {size.width >= 700 && (
+            <>
+              <th>Séries</th>
 
-          <th>Eventos</th>
+              <th>Eventos</th>
+            </>
+          )}
         </tr>
       </thead>
 
@@ -43,8 +49,6 @@ export function Heroes() {
               <td>
                 Carregando
               </td>
-              <td></td>
-              <td></td>
             </tr>
           ): (
             <>
