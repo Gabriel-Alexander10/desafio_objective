@@ -14,10 +14,15 @@ export const Container = styled.header`
 `;
 
 export const LogoContainer = styled.div`
-  width: 105px;
+  display: flex;
+
+  div {
+    width: 120px;
+  }
 `;
 
 export const Logo = styled(Image)`
+  width: 100%;
 `;
 
 export const UserInfoContainer = styled.div`

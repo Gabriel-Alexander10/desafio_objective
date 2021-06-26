@@ -33,7 +33,7 @@ export const HeroItem = styled.tr`
       display: block;
     }
     
-    > div {
+    a {
       display: flex;
       align-items: center;
 

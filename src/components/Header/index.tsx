@@ -1,14 +1,29 @@
-import Image from 'next/image';
+import Link from 'next/link';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import logoImg from '../../assets/logo.png';
 
 import { Container, Logo, LogoContainer, UserInfoContainer } from './styles';
 
-export function Header() {
+interface HeaderProps {
+  isOnDetailsPage?: boolean;
+}
+
+export function Header({ isOnDetailsPage = false }: HeaderProps) {
   return (
     <Container>
+
       <LogoContainer>
-        <Logo src={logoImg} alt="" />
+        { isOnDetailsPage && (
+          <Link href="/">
+            <a>
+              <MdKeyboardArrowLeft size={24} />
+            </a>
+          </Link>
+        ) }
+        <div>
+          <Logo src={logoImg} alt="" />
+        </div>
       </LogoContainer>
 
       <UserInfoContainer>

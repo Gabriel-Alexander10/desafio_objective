@@ -11,8 +11,9 @@ import { Search } from '../components/Search';
 import { api } from '../services/api';
 import { AxiosResponse } from 'axios';
 
-import { Container, Content, HeroesListContainer } from '../styles/pages/Home';
+import { Content, HeroesListContainer } from '../styles/pages/Home';
 import { IHero, IHeroesApiConfig } from '../types/HeroesTypes';
+import { generateApiConfig } from '../services/apiConfigSSR';
 
 interface HomeProps {
   apiHeroes: IHero[];
@@ -24,22 +25,34 @@ export default function Home({ apiHeroes, apiConfig, total}: HomeProps) {
   const { 
     handleUpdateHeroes,
     handleUpdateHeroesApiConfig,
-    handleUpdateCurrentPage,
     handleUpdateTotalHeroes
   } = useHeroes();
 
   useEffect(() => {
-    handleUpdateHeroes(apiHeroes);
-    handleUpdateHeroesApiConfig(apiConfig);
+    
+    
+    try {
+      api.get('/characters', apiConfig).then(response => {
+        const apiHeroes = response?.data.data.results ?? [];
+        const total = response?.data.data.total;
+        
+        handleUpdateHeroes(apiHeroes);
+        handleUpdateHeroesApiConfig(apiConfig);
 
-    handleUpdateTotalHeroes(total);
+        handleUpdateTotalHeroes(total);
+      });
+
+      console.log("Hello World!");
+    } catch (err) {
+      console.error(err);
+    }
 
   // so quero executar uma vez
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <Container>
+    <div>
       <Header />
 
       <Content>
@@ -53,35 +66,17 @@ export default function Home({ apiHeroes, apiConfig, total}: HomeProps) {
       </Content>
 
       <Pagination />
-    </Container>
+    </div>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const ts = Number(new Date());
-  const md5Hash = md5(ts + process.env.PRIVATE_API_KEY + process.env.NEXT_PUBLIC_API_KEY);
-
-  const apiConfig = {
-    params: {
-      ts,
-      hash: md5Hash,
-    },
-  };
-
-  let response: AxiosResponse;
-  
-  try {
-    response = await api.get('/characters', apiConfig);
-  } catch (err) {
-    console.error(err);
-  }
+  const apiConfig = generateApiConfig();
 
   return {
     props: {
-      apiHeroes: response?.data.data.results ?? [],
       apiConfig: apiConfig,
       offset: 0,
-      total: response?.data.data.total,
     },
   }
 }

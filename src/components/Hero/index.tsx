@@ -1,22 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image';
+import Link from 'next/link';
 
 import { IHero } from '../../types/HeroesTypes';
 
 import { HeroItem, HeroAvatarWrapper } from "./styles";
 
-export function Hero({ name, series, events, thumbnail }: IHero) {
+export function Hero({ name, series, events, thumbnail, id }: IHero) {
   const thumbURL = thumbnail.path + "/standard_medium." + thumbnail.extension;
   
   return (
     <HeroItem>
       <td>
-        <div>
+      <Link href={`/details/${id}`}>
+        <a>
           <HeroAvatarWrapper>
             <img src={thumbURL} alt={name} />
           </HeroAvatarWrapper>
           <strong>{name}</strong>
-        </div>
+        </a>
+        </Link>
       </td>
 
       <td>
@@ -26,7 +28,7 @@ export function Hero({ name, series, events, thumbnail }: IHero) {
           }
 
           return (
-            <span key={serie.name}>{serie.name}</span>
+            <span key={serie.name + serie.resourceURI}>{serie.name}</span>
           )
         }): (
           <span>Esse herói não possui séries para serem listadas</span>
@@ -40,7 +42,7 @@ export function Hero({ name, series, events, thumbnail }: IHero) {
         }
 
         return (
-          <span key={event.name}>{event.name}</span>
+          <span key={event.name + event.resourceURI}>{event.name}</span>
         )
       }): (
         <span>Esse herói não possui séries para serem listadas</span>

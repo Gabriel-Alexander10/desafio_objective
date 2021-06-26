@@ -1,13 +1,4 @@
-type IHeroEvents = {
-  available: number;
-  collectionURI: string;
-  items: Array<{
-    resourceURI: string;
-    name: string;
-  }>
-}
-
-type IHeroSeries = {
+export type IHeroItemInfo = {
   available: number;
   collectionURI: string;
   items: Array<{
@@ -30,6 +21,8 @@ export interface IHero {
     path: string;
     extension: string;
   };
-  series: IHeroSeries;
-  events: IHeroEvents;
+  series: IHeroItemInfo;
+  events: IHeroItemInfo;
+  comics: IHeroItemInfo;
+  stories: IHeroItemInfo;
 }

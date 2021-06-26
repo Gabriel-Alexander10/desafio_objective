@@ -12,6 +12,8 @@ interface HeroesContextProps {
   handleUpdateTotalHeroes: (total: number) => void;
   currentPage: number;
   handleUpdateCurrentPage: (pageNumber: number) => void;
+  currentHero: IHero;
+  handleUpdateCurrentHero: (hero: IHero) => void;
 }
 
 const HeroesContext = createContext<HeroesContextProps>({} as HeroesContextProps);
@@ -20,6 +22,8 @@ const HeroesContext = createContext<HeroesContextProps>({} as HeroesContextProps
 export function HeroesProvider({  children }) {
   const [heroes, setHeroes] = useState<IHero[]>([]);
   const [heroesApiConfig, setHeroesApiConfig] = useState<IHeroesApiConfig>({} as IHeroesApiConfig);
+  const [currentHero, setCurrentHero] = useState<IHero>({} as IHero);
+
   const [totalHeroes, setTotalHeroes] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
@@ -30,6 +34,10 @@ export function HeroesProvider({  children }) {
 
   const handleUpdateHeroesApiConfig = useCallback((apiConfig: IHeroesApiConfig) => {
     setHeroesApiConfig(apiConfig);
+  }, []);
+
+  const handleUpdateCurrentHero = useCallback((hero: IHero) => {
+    setCurrentHero(hero);
   }, []);
 
   const handleUpdateTotalHeroes = useCallback((total: number) => {
@@ -46,8 +54,6 @@ export function HeroesProvider({  children }) {
       }
     }).then(response => {
       setHeroes(response?.data.data.results);
-
-      console.log(heroesApiConfig.params);
     })
   }, [heroesApiConfig]);
 
@@ -61,7 +67,9 @@ export function HeroesProvider({  children }) {
         totalHeroes,
         handleUpdateTotalHeroes,
         currentPage,
-        handleUpdateCurrentPage
+        handleUpdateCurrentPage,
+        currentHero,
+        handleUpdateCurrentHero,
       }}
     >
       {children}
