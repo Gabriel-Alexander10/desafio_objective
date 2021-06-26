@@ -7,11 +7,16 @@ export type IHeroItemInfo = {
   }>
 }
 
+type ApiConfig = {
+  offset?: number; // page number * 10
+  nameStartsWith?: string;
+  limit: number;
+  ts: number;
+  hash: string
+}
+
 export interface IHeroesApiConfig {
-  params: {
-    ts: string;
-    hash: string;
-  }
+  params: ApiConfig;
 }
 
 export interface IHero {

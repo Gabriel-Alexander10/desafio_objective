@@ -33,8 +33,6 @@ export function HeroesProvider({  children }) {
   }, []);
 
   const handleUpdateHeroesApiConfig = useCallback((apiConfig: IHeroesApiConfig) => {
-    console.log("atualizer para", apiConfig);
-
     setHeroesApiConfig(apiConfig);
   }, []);
 
@@ -48,16 +46,7 @@ export function HeroesProvider({  children }) {
 
   const handleUpdateCurrentPage = useCallback((pageNumber: number) => {
     setCurrentPage(pageNumber);
-
-    api.get('/characters', {
-      params: {
-        ...heroesApiConfig.params,
-        offset: pageNumber * 10,
-      }
-    }).then(response => {
-      setHeroes(response?.data.data.results);
-    })
-  }, [heroesApiConfig]);
+  }, []);
 
   return (
     <HeroesContext.Provider

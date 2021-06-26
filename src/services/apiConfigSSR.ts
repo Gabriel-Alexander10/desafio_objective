@@ -8,6 +8,7 @@ export function generateApiConfig() {
     params: {
       ts,
       hash: md5Hash,
+      offset: 0,
     },
   }
 }
