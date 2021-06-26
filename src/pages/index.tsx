@@ -33,15 +33,10 @@ export default function Home({ apiHeroes, apiConfig, total}: HomeProps) {
     handleUpdateHeroesApiConfig(apiConfig);
 
     handleUpdateTotalHeroes(total);
-  }, [
-    apiConfig, 
-    apiHeroes,
-    handleUpdateCurrentPage, 
-    handleUpdateHeroes, 
-    handleUpdateHeroesApiConfig,
-    handleUpdateTotalHeroes,
-    total
-  ]);
+
+  // so quero executar uma vez
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
@@ -70,7 +65,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     params: {
       ts,
       hash: md5Hash,
-      offset: 0,
     },
   };
 
@@ -81,8 +75,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   } catch (err) {
     console.error(err);
   }
-
-  console.log(response);
 
   return {
     props: {

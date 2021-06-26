@@ -54,7 +54,11 @@ export function Pagination() {
           <Button 
             key={idx}
             active={firstButton + idx == currentPage}
-            onClick={() => handleUpdateCurrentPage(firstButton + idx)}
+            onClick={() => {
+              if (currentPage != firstButton + idx) {
+                handleUpdateCurrentPage(firstButton + idx)
+              }
+            }}
           >{firstButton + 1 +idx}</Button>
         )
       })}

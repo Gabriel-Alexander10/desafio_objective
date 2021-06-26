@@ -38,13 +38,16 @@ export function HeroesProvider({  children }) {
 
   const handleUpdateCurrentPage = useCallback((pageNumber: number) => {
     setCurrentPage(pageNumber);
-    
-    if (!!heroesApiConfig.params) {
-      heroesApiConfig.params.offset = pageNumber * 10;
-    }
 
-    api.get('/characters', heroesApiConfig).then(response => {
+    api.get('/characters', {
+      params: {
+        ...heroesApiConfig.params,
+        offset: pageNumber * 10,
+      }
+    }).then(response => {
       setHeroes(response?.data.data.results);
+
+      console.log(heroesApiConfig.params);
     })
   }, [heroesApiConfig]);
 
