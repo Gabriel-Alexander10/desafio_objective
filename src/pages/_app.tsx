@@ -4,7 +4,7 @@ import { ReactQueryDevtools } from 'react-query/devtools';
 
 const queryClient = new QueryClient();
 
-import { HeroesProvider } from '../hooks/HeroesContext';
+import { HeroesProvider } from '../context/HeroesContext';
 
 import GlobalStyle  from '../styles/global';
 

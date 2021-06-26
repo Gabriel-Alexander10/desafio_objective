@@ -1,7 +1,7 @@
 import { debounce } from 'lodash';
 import { useCallback, useEffect, useState } from 'react';
 import { MdSearch } from 'react-icons/md';
-import { useHeroes } from '../../hooks/HeroesContext';
+import { useHeroes } from '../../context/HeroesContext';
 import { api } from '../../services/api';
 
 import { Container } from './styles';

@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next';
 import React, { useEffect } from 'react'
-import { useHeroes } from '../hooks/HeroesContext';
+import { useHeroes } from '../context/HeroesContext';
 
 import { Header } from '../components/Header';
 import { Heroes } from '../components/Heroes';
