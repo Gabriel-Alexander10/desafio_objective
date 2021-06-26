@@ -2,7 +2,7 @@
 import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
 import Image from 'next/image';
 import React, { useEffect } from 'react'
-import { useHeroes } from '../../context/HeroesContext';
+import { useHeroes } from '../../contexts/HeroesContext';
 
 import { Header } from '../../components/Header';
 import { HeroAdventures } from '../../components/HeroAdventures';

@@ -1,6 +1,6 @@
 
 import { useEffect } from 'react';
-import { useHeroes } from '../../context/HeroesContext';
+import { useHeroes } from '../../contexts/HeroesContext';
 import { useHeroesQuery } from '../../services/hooks/useHeroesCache';
 import useWindowDimensions from '../../services/hooks/useWindowDimensions';
 import { Hero } from '../Hero';
