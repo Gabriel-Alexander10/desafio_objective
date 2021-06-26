@@ -9,6 +9,7 @@ import { Container } from './styles';
 export function SearchInput() {
   const [search, setSearch] = useState('');
   const [searched, setSearched] = useState(0);
+  
   const { heroesApiConfig, handleUpdateHeroes, currentPage } = useHeroes();
 
   const debouncedSearch = async (text: string) => {
@@ -47,7 +48,7 @@ export function SearchInput() {
     debounce((search) => {
       debouncedSearch(search);
     }, 500)
-  , []);
+  , [heroesApiConfig, currentPage]);
 
   return (
     <Container>

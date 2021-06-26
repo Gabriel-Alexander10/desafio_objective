@@ -33,6 +33,8 @@ export function HeroesProvider({  children }) {
   }, []);
 
   const handleUpdateHeroesApiConfig = useCallback((apiConfig: IHeroesApiConfig) => {
+    console.log("atualizer para", apiConfig);
+
     setHeroesApiConfig(apiConfig);
   }, []);
 

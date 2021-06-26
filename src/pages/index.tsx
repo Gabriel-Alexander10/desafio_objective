@@ -16,40 +16,44 @@ import { IHero, IHeroesApiConfig } from '../types/HeroesTypes';
 import { generateApiConfig } from '../services/apiConfigSSR';
 
 interface HomeProps {
-  apiHeroes: IHero[];
   apiConfig: IHeroesApiConfig;
-  total: number;
 }
 
-export default function Home({ apiHeroes, apiConfig, total}: HomeProps) {
+export default function Home({ apiConfig }: HomeProps) {
   const { 
     handleUpdateHeroes,
     handleUpdateHeroesApiConfig,
-    handleUpdateTotalHeroes
+    handleUpdateTotalHeroes,
+    currentPage
   } = useHeroes();
 
   useEffect(() => {
     
+    console.log("Hello World!");
+    handleUpdateHeroesApiConfig(apiConfig);
     
     try {
-      api.get('/characters', apiConfig).then(response => {
+      api.get('/characters', {
+        params: {
+          ...apiConfig.params,
+          offset: currentPage * 10
+        }
+      }).then(response => {
         const apiHeroes = response?.data.data.results ?? [];
         const total = response?.data.data.total;
         
         handleUpdateHeroes(apiHeroes);
-        handleUpdateHeroesApiConfig(apiConfig);
+        console.log(apiConfig);
 
         handleUpdateTotalHeroes(total);
       });
-
-      console.log("Hello World!");
     } catch (err) {
       console.error(err);
     }
 
   // so quero executar uma vez
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [handleUpdateHeroesApiConfig]);
 
   return (
     <div>
@@ -76,7 +80,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
   return {
     props: {
       apiConfig: apiConfig,
-      offset: 0,
     },
   }
 }
