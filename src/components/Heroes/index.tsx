@@ -12,10 +12,11 @@ export function Heroes() {
     handleUpdateTotalHeroes,
     handleUpdateHeroesApiConfig,
     handleUpdateHeroes,
-    heroes
+    heroes,
+    search
   } = useHeroes();
 
-  const { isLoading, data } = useHeroesQuery(currentPage, undefined, {});
+  const { isLoading, data } = useHeroesQuery(currentPage, search, {});
   const size = useWindowDimensions();
 
   useEffect(() => {

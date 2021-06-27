@@ -7,56 +7,36 @@ import { api } from '../../services/api';
 import { Container } from './styles';
 
 export function SearchInput() {
-  const [search, setSearch] = useState('');
-  const [searched, setSearched] = useState(0);
+  const [inputSearch, setInputSearch] = useState('');
   
-  const { heroesApiConfig, handleUpdateHeroes, currentPage } = useHeroes();
+  const {
+    heroesApiConfig,
+    currentPage,
+    handleSearch
+  } = useHeroes();
 
   const debouncedSearch = async (text: string) => {
-    const config = !text.trim() ? { 
-      params: {
-        ...heroesApiConfig.params,
-        offset: (currentPage) * 10,
-    }}: {
-      params: {
-        ...heroesApiConfig.params,
-        nameStartsWith: text,
-      }
-    };
-
-    try {
-      const response = await api.get('/characters', config);
-
-      handleUpdateHeroes(response.data.data.results);
-    } catch (err) {
-      console.log(err);
-    }
+    handleSearch(text);
   }
 
-  useEffect(() => {
-    if (!search.trim() && searched == 0) {
-      return;
-    }
-    
-    handleSearch(search);
-    setSearched(1);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [search]);
-
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleSearch = useCallback(
-    debounce((search) => {
-      debouncedSearch(search);
+  const handleInputSearch = useCallback(
+    debounce((text) => {
+      debouncedSearch(text);
     }, 500)
   , [heroesApiConfig, currentPage]);
+
+  useEffect(() => {
+    handleInputSearch(inputSearch);
+  }, [handleInputSearch, inputSearch]);
 
   return (
     <Container>
       <input
         placeholder="Search"
         type="text"
-        value={search}
-        onChange={e => setSearch(e.target.value)}
+        value={inputSearch}
+        onChange={e => setInputSearch(e.target.value)}
       />
       
       <MdSearch size={24} />

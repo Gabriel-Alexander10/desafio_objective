@@ -12,8 +12,8 @@ interface HeroesContextProps {
   handleUpdateTotalHeroes: (total: number) => void;
   currentPage: number;
   handleUpdateCurrentPage: (pageNumber: number) => void;
-  currentHero: IHero;
-  handleUpdateCurrentHero: (hero: IHero) => void;
+  search: string;
+  handleSearch: (search: string) => void;
 }
 
 const HeroesContext = createContext<HeroesContextProps>({} as HeroesContextProps);
@@ -22,10 +22,10 @@ const HeroesContext = createContext<HeroesContextProps>({} as HeroesContextProps
 export function HeroesProvider({  children }) {
   const [heroes, setHeroes] = useState<IHero[]>([]);
   const [heroesApiConfig, setHeroesApiConfig] = useState<IHeroesApiConfig>({} as IHeroesApiConfig);
-  const [currentHero, setCurrentHero] = useState<IHero>({} as IHero);
 
   const [totalHeroes, setTotalHeroes] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
+  const [search, setSearch] = useState("");
 
 
   const handleUpdateHeroes = useCallback((newHeroes: IHero[]) => {
@@ -36,16 +36,16 @@ export function HeroesProvider({  children }) {
     setHeroesApiConfig(apiConfig);
   }, []);
 
-  const handleUpdateCurrentHero = useCallback((hero: IHero) => {
-    setCurrentHero(hero);
-  }, []);
-
   const handleUpdateTotalHeroes = useCallback((total: number) => {
     setTotalHeroes(total);
   }, []);
 
   const handleUpdateCurrentPage = useCallback((pageNumber: number) => {
     setCurrentPage(pageNumber);
+  }, []);
+
+  const handleSearch = useCallback((text: string) => {
+    setSearch(text);
   }, []);
 
   return (
@@ -59,8 +59,8 @@ export function HeroesProvider({  children }) {
         handleUpdateTotalHeroes,
         currentPage,
         handleUpdateCurrentPage,
-        currentHero,
-        handleUpdateCurrentHero,
+        search,
+        handleSearch
       }}
     >
       {children}

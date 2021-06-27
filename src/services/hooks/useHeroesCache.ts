@@ -14,7 +14,7 @@ export async function getHeroes(page: number, nameStartsWith: string): Promise<G
     params: {
       ...response.data.params,
       offset: page * 10,
-      nameStartsWith,
+      nameStartsWith: nameStartsWith === '' ? undefined : nameStartsWith,
     }
   }
 
@@ -44,7 +44,7 @@ export async function getHeroes(page: number, nameStartsWith: string): Promise<G
 
 export const useHeroesQuery = (page: number = 0, nameStartsWith: string = undefined,  _options: UseQueryOptions) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  return useQuery(['heroes', page], () => getHeroes(page, nameStartsWith), {
+  return useQuery(['heroes', page, nameStartsWith], () => getHeroes(page, nameStartsWith), {
     staleTime:  1000 * 60 * 60 * 24, // 24 hours
   })
 }
