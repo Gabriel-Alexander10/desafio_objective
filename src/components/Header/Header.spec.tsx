@@ -7,8 +7,6 @@ describe("Header component", () => {
       <Header />
     );
 
-    screen.logTestingPlaygroundURL();
-
     expect(screen.getByAltText("Logo Objective")).toBeInTheDocument();
   });
 

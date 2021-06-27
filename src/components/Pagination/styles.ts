@@ -37,9 +37,11 @@ export const Button = styled.button<ButtonProps>`
   border: 1px solid var(--background);
   border-radius: 4px;
 
-  &:hover {
-    background: var(--element-highlighted);
+  &:hover, &:focus {
+    background-color: var(--element-highlighted);
   }
+
+
 
   & + button {
     margin-left: 1rem;
