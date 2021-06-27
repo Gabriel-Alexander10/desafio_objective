@@ -2,8 +2,6 @@ import Link from 'next/link';
 import { memo } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
-import logoImg from '../../assets/logo.png';
-
 import { Container, Logo, LogoContainer, UserInfoContainer } from './styles';
 
 interface HeaderProps {
@@ -23,7 +21,7 @@ const HeaderComponent = ({ isOnDetailsPage = false }: HeaderProps) => {
           </Link>
         ) }
         <div>
-          <Logo src={logoImg} alt="" />
+          <Logo src="/assets/logo.png" alt="Logo Objective" />
         </div>
       </LogoContainer>
 

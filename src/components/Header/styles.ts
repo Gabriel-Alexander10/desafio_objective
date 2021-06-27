@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 
 export const Container = styled.header`
   display: flex;
@@ -29,7 +28,7 @@ export const LogoContainer = styled.div`
   }
 `;
 
-export const Logo = styled(Image)`
+export const Logo = styled.img`
   width: 100%;
 `;
 
