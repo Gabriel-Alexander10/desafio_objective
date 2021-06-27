@@ -8,10 +8,13 @@ import { Container, ArrowButtonWrapper, Button } from './styles';
 export function Pagination() {
   const { currentPage, handleUpdateCurrentPage, totalHeroes } = useHeroes();
   const [firstButton, setFirstButton] = useState(currentPage);
+  console.log(firstButton);
+  console.log(Math.floor(totalHeroes / 10));
 
   const size = useWindowDimensions();
 
-  const buttons = new Array(size.width >= 700 ? 5 : 3).fill(0);
+  const buttonsNumber = size.width >= 700 ? 5 : 3;
+  const buttons = new Array(buttonsNumber).fill(0);
 
   function handlePreviewPage(pageNumber: number) {
     handleUpdateCurrentPage(pageNumber);
@@ -49,6 +52,24 @@ export function Pagination() {
       )}
 
       {buttons.map((_, idx) => {
+        if (
+          Math.floor(totalHeroes / 10) === firstButton &&
+          Math.floor(totalHeroes / 10) > buttonsNumber
+        ) {
+          return (
+            <Button 
+              key={idx}
+              active={firstButton + idx + 1 - buttonsNumber == currentPage}
+              id={String(firstButton + 1 + idx - buttonsNumber)}
+              onClick={() => {
+                if (currentPage != firstButton + 1 + idx - buttonsNumber) {
+                  handleUpdateCurrentPage(firstButton + 1 + idx - buttonsNumber)
+                }
+              }}
+            >{firstButton + 2 - buttonsNumber + idx}</Button>
+          )
+        }
+
         if (Math.floor(totalHeroes / 10) < firstButton + idx) {
           return;
         }
@@ -57,6 +78,7 @@ export function Pagination() {
           <Button 
             key={idx}
             active={firstButton + idx == currentPage}
+            id={String(firstButton + idx)}
             onClick={() => {
               if (currentPage != firstButton + idx) {
                 handleUpdateCurrentPage(firstButton + idx)
