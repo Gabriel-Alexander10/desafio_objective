@@ -79,11 +79,20 @@ export const getStaticProps: GetStaticProps = async ({
 
   const response = await api.get(`/characters/${slug}`, apiConfig);
 
-  console.log(response.data.data.results[0].name);
+  const responseHero = response.data.data.results[0]
 
   return {
     props: {
-      hero: response.data.data.results[0],
+      hero: {
+        id: responseHero.id,
+        description: responseHero.description,
+        name: responseHero.name,
+        thumbnail: responseHero.thumbnail,
+        series: responseHero.series.items,
+        events: responseHero.events.items,
+        comics: responseHero.comics.items,
+        stories: responseHero.stories.items,
+      },
     },
     revalidate: 5 * 60 * 60,
   }

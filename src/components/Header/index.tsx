@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { memo } from 'react';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import logoImg from '../../assets/logo.png';
@@ -9,7 +10,7 @@ interface HeaderProps {
   isOnDetailsPage?: boolean;
 }
 
-export function Header({ isOnDetailsPage = false }: HeaderProps) {
+const HeaderComponent = ({ isOnDetailsPage = false }: HeaderProps) => {
   return (
     <Container>
 
@@ -36,3 +37,5 @@ export function Header({ isOnDetailsPage = false }: HeaderProps) {
     </Container>
   )
 }
+
+export const Header = memo((HeaderComponent));

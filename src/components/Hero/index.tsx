@@ -26,10 +26,7 @@ export function Hero({ name, series, events, thumbnail, id }: IHero) {
       {size.width >= 700 && (
         <>
           <td>
-            {series.items.length > 0 ? series.items.map((serie, idx) => {
-              if (idx > 4) {
-                return;
-              }
+            {series.length > 0 ? series.map((serie) => {
 
               return (
                 <span key={serie.name + serie.resourceURI}>{serie.name}</span>
@@ -40,11 +37,7 @@ export function Hero({ name, series, events, thumbnail, id }: IHero) {
           </td>
 
           <td>
-          {events.items.length > 0 ? events.items.map((event, idx) => {
-            if (idx > 4) {
-              return;
-            }
-
+          {events.length > 0 ? events.map((event) => {
             return (
               <span key={event.name + event.resourceURI}>{event.name}</span>
             )

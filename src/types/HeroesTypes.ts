@@ -1,11 +1,7 @@
-export type IHeroItemInfo = {
-  available: number;
-  collectionURI: string;
-  items: Array<{
-    resourceURI: string;
-    name: string;
-  }>
-}
+export type IHeroItemInfo = Array<{
+  resourceURI: string;
+  name: string;
+}>
 
 type ApiConfig = {
   offset?: number; // page number * 10

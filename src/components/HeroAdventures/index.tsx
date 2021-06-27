@@ -29,11 +29,11 @@ export function HeroAdventures({ title, infos }: IHeroAdventuresProps) {
 
           <span>
             <a 
-              href={infos.items[index]?.resourceURI}
+              href={infos[index]?.resourceURI}
               target="_blank"
               rel="noreferrer"
             >
-              {infos.items[index].name}
+              {infos[index].name}
             </a>
           </span>
         </ListItem>
@@ -46,7 +46,7 @@ export function HeroAdventures({ title, infos }: IHeroAdventuresProps) {
       <h2>{title.replace(/^\w/, (c) => c.toUpperCase())}</h2>
 
       <Infolist>
-        { infos.items.length > 0 ? (
+        { infos.length > 0 ? (
            <AutoSizer>
            {({height, width}) => (
              <List
@@ -54,7 +54,7 @@ export function HeroAdventures({ title, infos }: IHeroAdventuresProps) {
               rowHeight={96}
               width={width}
               overscanRowCount={3}
-              rowCount={infos.items.length}
+              rowCount={infos.length}
               rowRenderer={rowRenderer}
             />
            )}

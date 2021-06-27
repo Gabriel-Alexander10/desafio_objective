@@ -1,4 +1,4 @@
-import { useQuery, UseQueryOptions, UseQueryResult } from "react-query";
+import { useQuery, UseQueryOptions } from "react-query";
 import { IHero, IHeroesApiConfig } from "../../types/HeroesTypes";
 import { api, myApi } from "../api";
 
@@ -28,14 +28,12 @@ export async function getHeroes(page: number, nameStartsWith: string): Promise<G
         description: hero.description,
         name: hero.name,
         thumbnail: hero.thumbnail,
-        series: hero.series,
-        events: hero.events,
-        comics: hero.comics,
-        stories: hero.stories,
+        series: hero.series.available >= 4 ? hero.series.items.slice(0, 4) : hero.series.items,
+        events: hero.events.available >= 4 ? hero.events.items.slice(0, 4) : hero.events.items,
+        comics: hero.comics.available >= 4 ? hero.comics.items.slice(0, 4) : hero.comics.items,
+        stories: hero.stories.available >= 4 ? hero.stories.items.slice(0, 4) : hero.stories.items,
 			}
 	});
-  
-  console.log("heroes", heroes);
 
 	return {
 		heroes,
