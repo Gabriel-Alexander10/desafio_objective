@@ -1,34 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center">
+   <img src="./public/assets/logo.png" alt="Objective" width="200px" />
+</h1>
+<p align="center">
+    <img src="https://img.shields.io/github/issues/Gabriel-Alexander10/desafio_objective" alt="issues" />
+    <img src="https://img.shields.io/github/forks/Gabriel-Alexander10/desafio_objective" alt="forks" />
+    <img src="https://img.shields.io/github/stars/Gabriel-Alexander10/desafio_objective" alt="stars" />
+    <img src="https://img.shields.io/github/license/Gabriel-Alexander10/desafio_objective" alt="license" />
+</p>
 
-## Getting Started
+<p align="center">
+ <a href="#about">About</a> • 
+ <a href="#features">Features</a> •
+ <a href="#techs">Techs</a> • 
+ <a href="#author">Author</a>
+</p>
 
-First, run the development server:
+## About
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+🚀 Desafio Frontend fornecido pela empresa Objectiveive
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- [x] Listagem dos heróis da marvel
+- [x] Responsividade
+- [x] Listagem dos detakhes do herói
+- [x] Cache local da paginação
+- [x] debounce na pesquisa de heróis
+- [x] SSG (Static site generation) na build
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## How it works
+Baixe a aplicação e instale as dependencias:
+> ```bash
+> npm install
+> # or
+> yarn
+> ```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Após isso, inicie a aplicação:
+> ```bash
+> npm run dev
+> # or
+> yarn dev
+> ```
+> Abra [http://localhost:3000](http://localhost:3000) no seu navegador e veja o resultado.
 
-## Learn More
+## Techs
 
-To learn more about Next.js, take a look at the following resources:
+As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [ReactJS](https://reactjs.org/)
+- [NextJS](https://nextjs.org/)
+- [Typescript](https://www.typescriptlang.org/)
+- [Axios](https://github.com/axios/axios)
+- [Jest](https://jestjs.io/pt-BR/)
+- [Testing-library](https://testing-library.com/docs/react-testing-library/cheatsheet/)
+- [Styled-components](https://styled-components.com/)
+- [Eslint](https://eslint.org/)
+- [React-query](https://react-query.tanstack.com/)
+- [React-virtualized](https://bvaughn.github.io/react-virtualized/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Author
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<a href="https://www.linkedin.com/in/gabriel-alexander-abb90a1b6/" >
+ <img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/D5635AQGYHyqB9uRwYw/profile-framedphoto-shrink_200_200/0/1624146647861?e=1624924800&v=beta&t=6RDFLa0uGehhUojj7gW7UDGilJnafgojmapSvu3XR7E" width="100px;" alt="Gabriel Alexander"/>
+ <br />
+ <sub><b>Gabriel Alexander</b></sub></a>    
+<br />
+<a href="https://www.linkedin.com/in/gabriel-alexander-abb90a1b6/">
+   <img src="https://img.shields.io/badge/Gabriel%20Alexander-blue?style=flat&logo=linkedin&link=https://www.linkedin.com/in/gabriel-alexander-abb90a1b6/" alt="LinkedIn badge"/> 
+</a>
