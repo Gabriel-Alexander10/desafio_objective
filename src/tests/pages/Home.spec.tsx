@@ -1,6 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { mocked } from 'ts-jest/utils';
-import { useHeroesQuery } from '../../services/hooks/useHeroesCache';
+import { useHeroesQuery } from '../../hooks/useHeroesCache';
 
 import Home from '../../pages';
 import React from 'react';

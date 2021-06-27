@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
 import { useHeroes } from '../../contexts/HeroesContext';
-import useWindowDimensions from '../../services/hooks/useWindowDimensions';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 import { Container, ArrowButtonWrapper, Button } from './styles';
 

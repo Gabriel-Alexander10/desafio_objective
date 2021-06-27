@@ -1,8 +1,8 @@
 
 import { useEffect } from 'react';
 import { useHeroes } from '../../contexts/HeroesContext';
-import { useHeroesQuery } from '../../services/hooks/useHeroesCache';
-import useWindowDimensions from '../../services/hooks/useWindowDimensions';
+import { useHeroesQuery } from '../../hooks/useHeroesCache';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 import { Hero } from '../Hero';
 import { Table } from './styles';
 

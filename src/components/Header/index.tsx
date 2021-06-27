@@ -27,7 +27,7 @@ const HeaderComponent = ({ isOnDetailsPage = false }: HeaderProps) => {
 
       <UserInfoContainer>
         <p>
-          <strong>Nome</strong> Teste frontend
+          <strong>Gabriel Alexander</strong> Teste de frontend
         </p>
 
         <div>GA</div>

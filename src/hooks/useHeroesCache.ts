@@ -1,6 +1,6 @@
 import { useQuery, UseQueryOptions } from "react-query";
-import { IHero, IHeroesApiConfig } from "../../types/HeroesTypes";
-import { api, myApi } from "../api";
+import { IHero, IHeroesApiConfig } from "../types/HeroesTypes";
+import { api, myApi } from "../services/api";
 
 type GetHeroesResponse = {
 	totalCount: number;
