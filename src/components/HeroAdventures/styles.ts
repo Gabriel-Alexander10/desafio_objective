@@ -53,4 +53,16 @@ export const ListItem = styled.div`
   span {
     font-size: 1rem;
   }
+
+  @media (max-width: 500px) {
+    svg {
+      margin-left: 1rem;
+      width: 24px;
+    }
+
+    span {
+      font-size: 0.8rem;
+      width: 50%;
+    }
+  }
 `;

@@ -19,6 +19,14 @@ export const LogoContainer = styled.div`
   div {
     width: 120px;
   }
+
+  @media (max-width: 500px) {
+    div {
+      width: 80px;
+      display: flex;
+      align-items: center;
+    }
+  }
 `;
 
 export const Logo = styled(Image)`

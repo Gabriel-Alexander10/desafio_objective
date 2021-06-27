@@ -10,8 +10,6 @@ type GetHeroesResponse = {
 
 export async function getHeroes(page: number, nameStartsWith: string): Promise<GetHeroesResponse> {
   const response = await myApi.get<IHeroesApiConfig>('/heroesHash');
-
-  console.log(response.data);
   const apiConfig = {
     params: {
       ...response.data.params,
@@ -27,6 +25,7 @@ export async function getHeroes(page: number, nameStartsWith: string): Promise<G
 	const heroes = data.data.results.map(hero => {
 			return {
         id: hero.id,
+        description: hero.description,
         name: hero.name,
         thumbnail: hero.thumbnail,
         series: hero.series,

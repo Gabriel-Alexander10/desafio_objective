@@ -17,8 +17,9 @@ export const Content = styled.div`
     border-radius: 8px;
 
     > div {
-      width: 6.25rem;
-      height: 6.25rem;
+      min-width: 80px;
+      border-radius: 4px;
+      margin-right: 1rem;
 
       div {
         width: 100%;
@@ -27,9 +28,26 @@ export const Content = styled.div`
       img {
         display: block;
         width: 100%;
+        max-height: 80px;
+        max-width: 80px;
+        border-radius: 4px;
       }
+    }
 
-      margin-right: 1rem;
+    @media (max-width: 900px) {
+      width: 100%;
+    }
+
+    @media(max-width: 500px) {
+      flex-direction: column;
+      align-items: center;
+      > div {
+        
+        margin: 0;
+        img {
+          width: 4rem;
+        }
+      }
     }
   }
 
@@ -43,6 +61,10 @@ export const Content = styled.div`
     flex-wrap: wrap;
     gap: 1.5rem;
   }
+
+  @media(max-width: 600px) { 
+    padding: 2.5rem 2rem;
+  }
 `;
 
 export const HeroInfo = styled.div`
@@ -54,5 +76,10 @@ export const HeroInfo = styled.div`
 
   strong {
     font: 700 1.5rem "PT Sans Caption";
+  }
+
+  @media(max-width: 500px) {
+    flex-direction: column;
+    align-items: center;
   }
 `;

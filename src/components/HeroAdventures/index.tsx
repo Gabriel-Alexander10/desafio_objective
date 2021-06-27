@@ -18,13 +18,14 @@ export function HeroAdventures({ title, infos }: IHeroAdventuresProps) {
     "series": MdMovie,
     "events": MdEventAvailable
   }
+
   const Icon: IconType = !!title ? icons[title.toLowerCase()] : null;
 
   const rowRenderer: ListRowRenderer = ({ key, index, style }) => {
     return (
       <div key={key} style={style}>
         <ListItem>
-          <Icon size={36}  />
+          <Icon size={32}  />
 
           <span>
             <a 

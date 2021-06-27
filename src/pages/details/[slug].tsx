@@ -1,38 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from 'next';
-import Image from 'next/image';
-import React, { useEffect } from 'react'
-import { useHeroes } from '../../contexts/HeroesContext';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import React from 'react'
 
 import { Header } from '../../components/Header';
 import { HeroAdventures } from '../../components/HeroAdventures';
 
 import { IHero, IHeroesApiConfig } from '../../types/HeroesTypes';
 
-import heroImg from '../../assets/teste.png';
 import { Content, HeroInfo } from '../../styles/pages/Details';
 import { generateApiConfig } from '../../services/apiConfigSSR';
 import { api } from '../../services/api';
-
-
-
 interface HomeProps {
   hero: IHero;
-  apiConfig: IHeroesApiConfig;
 }
 
-export default function Details({ apiConfig, hero }: HomeProps) {
-  const {
-    handleUpdateCurrentHero,
-    handleUpdateHeroesApiConfig
-  } = useHeroes();
-
+export default function Details({ hero }: HomeProps) {
   const thumbURL = hero && hero.thumbnail.path + "/standard_medium." + hero.thumbnail.extension;
-
-  useEffect(() => {
-    // handleUpdateCurrentHero(hero);
-    // handleUpdateHeroesApiConfig(apiConfig)
-  }, []);
 
   return (
     <div>
@@ -43,14 +26,14 @@ export default function Details({ apiConfig, hero }: HomeProps) {
 
           <div>
             <div>
-              <img src={thumbURL} alt="" />
+              <img src={thumbURL} alt={hero.name} />
             </div>
             
 
             <HeroInfo>
               <strong>{hero && hero.name}</strong>
 
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, cumque nulla corporis labore tempore dolores facilis. Impedit id in sed praesentium consectetur voluptates quibusdam recusandae ea vel unde. Optio, soluta?</p> 
+              <p>{!!hero.description ? hero.description : "O herói não possui descrição"}</p> 
             </HeroInfo>
           </div>
 
@@ -100,7 +83,6 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      apiConfig,
       hero: response.data.data.results[0],
     },
     revalidate: 5 * 60 * 60,
