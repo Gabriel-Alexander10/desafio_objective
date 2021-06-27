@@ -1,4 +1,4 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor  } from '@testing-library/react';
 import { mocked } from 'ts-jest/utils';
 import { Pagination } from '.';
 import { useHeroes } from '../../contexts/HeroesContext'
@@ -38,6 +38,13 @@ describe("Pagination component", () => {
     );
 
     const button = screen.getByText("2");
+
+    // not working ;-;
+    // fireEvent.mouseEnter(button);
+
+    // await waitFor(() => {
+    //   expect(button).toHaveStyleRule('background-color', 'var(--element-highlighted)');
+    // })
 
     fireEvent.click(button);
 

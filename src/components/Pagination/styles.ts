@@ -31,8 +31,8 @@ export const Button = styled.button<ButtonProps>`
   width: 2.5rem;
   height: 2rem;
   ${props => props.active ?
-     css`background: var(--element-highlighted);` :
-     css`background: var(--element);`
+     css`background-color: var(--element-highlighted);` :
+     css`background-color: var(--element);`
   };
   border: 1px solid var(--background);
   border-radius: 4px;
