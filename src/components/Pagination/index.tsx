@@ -8,8 +8,6 @@ import { Container, ArrowButtonWrapper, Button } from './styles';
 export function Pagination() {
   const { currentPage, handleUpdateCurrentPage, totalHeroes } = useHeroes();
   const [firstButton, setFirstButton] = useState(currentPage);
-  console.log(firstButton);
-  console.log(Math.floor(totalHeroes / 10));
 
   const size = useWindowDimensions();
 
