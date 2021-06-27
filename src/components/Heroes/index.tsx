@@ -33,13 +33,10 @@ export function Heroes() {
         <tr>
           <th>Personagem</th>
 
-          {size.width >= 700 && (
-            <>
-              <th>Séries</th>
+          <th>Séries</th>
 
-              <th>Eventos</th>
-            </>
-          )}
+          <th>Eventos</th>
+          
         </tr>
       </thead>
 

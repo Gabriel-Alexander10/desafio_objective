@@ -14,6 +14,12 @@ export const Table = styled.table`
       & + th {
         padding-left: 0;
       }
+
+      @media (max-width: 700px) {
+        & + th {
+          display: none;
+        }
+      }
     }
 
   }

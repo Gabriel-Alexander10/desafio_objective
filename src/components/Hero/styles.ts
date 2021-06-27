@@ -28,6 +28,12 @@ export const HeroItem = styled.tr`
       padding-right: 2rem;
       padding-left: 0;
     }
+
+    @media (max-width: 700px) {
+      & + td {
+        display: none;
+      }
+    }
     
     span {
       display: block;
@@ -41,7 +47,6 @@ export const HeroItem = styled.tr`
         margin-left: 24px;
         font: bold 1rem "PT Sans";
       }
-
     }
   }
 `;
