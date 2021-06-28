@@ -4,12 +4,12 @@ export const api = axios.create({
   baseURL: "http://gateway.marvel.com/v1/public",
   params: {
     limit: 10,
-    apikey: process.env.NEXT_PUBLIC_API_KEY,
+    apikey: process.env.NEXT_PUBLIC_MARVEL_API_KEY,
   }
 });
 
 export const myApi = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL: process.env.NEXT_PUBLIC_API_URL,
 })
 
 

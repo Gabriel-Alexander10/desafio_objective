@@ -38,8 +38,9 @@ Baixe a aplicação e instale as dependencias:
 
 Crie um arquivo .env.local e copie o conteudo do arquivo .env.example. Após isso coloque a sua chave publica e privada da API da marvel
 ```env
-NEXT_PUBLIC_API_KEY=chave_publica
-PRIVATE_API_KEY=chave_privada
+NEXT_PUBLIC_MARVEL_API_KEY=chave_publica
+PRIVATE_MARVEL_API_KEY=chave_privada
+NEXT_PUBLIC_API_URL=http://localhost:3000/api
 ```
 
 Após isso, inicie a aplicação:
