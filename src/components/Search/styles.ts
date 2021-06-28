@@ -6,10 +6,6 @@ export const SearchContainer = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-
-  @media (max-width: 700px) {
-    align-items: center;
-  }
   
   > h1 {
     color: var(--text); 
@@ -20,5 +16,10 @@ export const SearchContainer = styled.div`
     font: normal bold 1rem "PT Sans Caption";
     padding-top: 1rem;
     padding-bottom: 0.5rem;
+  }
+
+  @media (max-width: 700px) {
+    align-items: center;
+    font: 1.5rem;
   }
 `;
