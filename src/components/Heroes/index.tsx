@@ -17,7 +17,6 @@ export function Heroes() {
   } = useHeroes();
 
   const { isLoading, data } = useHeroesQuery(currentPage, search, {});
-  const size = useWindowDimensions();
 
   useEffect(() => {
     if (!!data) {

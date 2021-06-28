@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
-import useWindowDimensions from '../../hooks/useWindowDimensions';
 
 import { IHero } from '../../types/HeroesTypes';
 
