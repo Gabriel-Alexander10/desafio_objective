@@ -17,13 +17,13 @@
 
 ## About
 
-🚀 Desafio Frontend fornecido pela empresa Objectiveive
+🚀 Desafio Frontend fornecido pela empresa Objective
 
 ## Features
 
 - [x] Listagem dos heróis da marvel
 - [x] Responsividade
-- [x] Listagem dos detakhes do herói
+- [x] Listagem dos detalhes do herói
 - [x] Cache local da paginação
 - [x] debounce na pesquisa de heróis
 - [x] SSG (Static site generation) na build
