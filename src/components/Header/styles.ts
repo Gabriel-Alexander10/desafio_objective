@@ -25,6 +25,8 @@ export const LogoContainer = styled.div`
       display: flex;
       align-items: center;
     }
+
+    padding-left: 10px;
   }
 `;
 
@@ -56,5 +58,13 @@ export const UserInfoContainer = styled.div`
     background: var(--element);
     border-radius: 4px;
     font: normal bold 0.9375rem 'PT Sans Caption', sans-serif;
+  }
+
+  @media (max-width: 500px) {
+    gap: 5px;
+
+     p {
+      width: 100px;
+    }
   }
 `;
