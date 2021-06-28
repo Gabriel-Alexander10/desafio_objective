@@ -36,7 +36,7 @@ Baixe a aplicação e instale as dependencias:
 > yarn
 > ```
 
-Crie um arquivo .env.local e copie o conteudo do arquivo .env.example. Após isso coloque a sua chave publica e privada da API da marvel
+Crie um arquivo .env.local (ou somente .env) e copie o conteudo do arquivo .env.example. Após isso coloque a sua chave publica e privada da API da marvel
 ```env
 NEXT_PUBLIC_MARVEL_API_KEY=chave_publica
 PRIVATE_MARVEL_API_KEY=chave_privada
