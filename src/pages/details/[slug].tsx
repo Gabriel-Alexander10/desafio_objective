@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { GetStaticPaths, GetStaticProps } from 'next';
-import React from 'react'
+import Head from 'next/head';
 
 import { Header } from '../../components/Header';
 import { HeroAdventures } from '../../components/HeroAdventures';
 
-import { IHero, IHeroesApiConfig } from '../../types/HeroesTypes';
+import { IHero } from '../../types/HeroesTypes';
 
 import { Content, HeroInfo } from '../../styles/pages/Details';
 import { generateApiConfig } from '../../services/apiConfigSSR';
@@ -19,6 +19,9 @@ export default function Details({ hero }: HomeProps) {
 
   return (
     <div>
+      <Head>
+        <title>Desafio Objective | Details</title>
+      </Head>
       <Header isOnDetailsPage />
 
       {hero && (
