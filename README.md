@@ -17,13 +17,13 @@
 
 ## About
 
-🚀 Desafio Frontend fornecido pela empresa Objectiveive
+🚀 Desafio Frontend fornecido pela empresa Objective
 
 ## Features
 
 - [x] Listagem dos heróis da marvel
 - [x] Responsividade
-- [x] Listagem dos detakhes do herói
+- [x] Listagem dos detalhes do herói
 - [x] Cache local da paginação
 - [x] debounce na pesquisa de heróis
 - [x] SSG (Static site generation) na build
@@ -72,7 +72,7 @@ As seguintes tecnologias foram utilizadas no desenvolvimento do projeto:
  <img style="border-radius: 50%;" src="https://media-exp1.licdn.com/dms/image/D5635AQGYHyqB9uRwYw/profile-framedphoto-shrink_200_200/0/1624146647861?e=1624924800&v=beta&t=6RDFLa0uGehhUojj7gW7UDGilJnafgojmapSvu3XR7E" width="100px;" alt="Gabriel Alexander"/>
  <br />
  <sub><b>Gabriel Alexander</b></sub></a>    
-<br />
+ <br />
 <a href="https://www.linkedin.com/in/gabriel-alexander-abb90a1b6/">
    <img src="https://img.shields.io/badge/Gabriel%20Alexander-blue?style=flat&logo=linkedin&link=https://www.linkedin.com/in/gabriel-alexander-abb90a1b6/" alt="LinkedIn badge"/> 
 </a>
