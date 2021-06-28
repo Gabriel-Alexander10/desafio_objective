@@ -20,6 +20,11 @@ export const SearchContainer = styled.div`
 
   @media (max-width: 700px) {
     align-items: center;
-    font: 1.5rem;
+  }
+
+  @media (max-width: 500px) {
+    > h1 {
+      font-size: 1.5rem;
+    }
   }
 `;
